@@ -330,6 +330,11 @@ function renderHome() {
         `${state.players.length} / ${MAX_PLAYERS} players`
     ));
 
+    const author = el('div', { class: 'home-author' });
+    author.innerHTML = '<br/>Made with <span class="heart">&hearts;</span> by '
+        + '<a href="https://linkedin.com/in/kushrupani" target="_blank" rel="noopener noreferrer">Kaushal Rupani</a>';
+    screen.append(author);
+
     app.append(screen);
 
     if (state.scoringEnabled && state.players.length < MAX_PLAYERS) {

@@ -1224,3 +1224,42 @@ button {
         display: none;
     }
 }
+
+.home-author {
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+    z-index: 1;
+}
+
+.home-author a {
+    color: var(--gold);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.home-author a:hover {
+    color: var(--gold-light);
+    text-decoration: underline;
+}
+
+.home-author .heart {
+    color: #f43f5e;
+    display: inline-block;
+    animation: heartbeat 1.4s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.22);
+    }
+}

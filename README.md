@@ -1,4 +1,4 @@
-# 🪔 Bollyflip
+# 🎬 Bollyflip 🎬
 
 **Guess the Bollywood movie from its flipped-English opposite name.**
 

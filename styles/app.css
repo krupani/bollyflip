@@ -768,14 +768,14 @@
     align-items: center;
     padding: 10px 20px;
     border-radius: 999px;
-    /* Brighter border */
-    border: 1.5px solid rgba(245, 239, 230, 0.40);
-    /* Brighter pill background */
-    background: rgba(245, 239, 230, 0.10);
+    /* Crisp, brighter border */
+    border: 2px solid rgba(245, 239, 230, 0.6);
+    /* Solid, lighter background instead of transparent */
+    background: rgba(255, 255, 255, 0.15);
     cursor: pointer;
-    font-size: 0.92rem;
-    font-weight: 500;
-    color: var(--cream);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
     transition: all 0.16s;
     user-select: none;
 }
@@ -789,8 +789,10 @@
 }
 
 .radio-pill:hover {
-    background: rgba(245, 239, 230, 0.20);
-    border-color: rgba(245, 239, 230, 0.65);
+    background: rgba(255, 255, 255, 0.28);
+    border-color: #ffffff;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
 }
 
 .radio-pill.selected {
@@ -803,6 +805,7 @@
 
 .radio-pill.nobody {
     border-style: dashed;
+    border-color: rgba(245, 239, 230, 0.5);
 }
 
 .radio-pill.nobody.selected {

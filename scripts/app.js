@@ -205,12 +205,21 @@ function fitClueText() {
         if (!center) return;
         const clue = center.querySelector('.clue-text, .jumble-clue');
         if (!clue) return;
+
+        // 1. RESET the inline font-size. 
+        // This forces the browser to go back to the CSS default (the large clamp size).
+        clue.style.fontSize = '';
+
         const reveal = center.querySelector('.movie-reveal');
         const hint = center.querySelector('.hint-card');
         const used = (reveal ? reveal.offsetHeight + 30 : 0) + (hint ? hint.offsetHeight + 26 : 0);
         const avail = center.clientHeight - used - 36;
+
+        // 2. Measure the reset size
         let size = parseFloat(getComputedStyle(clue).fontSize);
         let guard = 0;
+
+        // 3. Only shrink if it overflows
         while (clue.scrollHeight > avail && size > 16 && guard < 90) {
             size -= 2;
             clue.style.fontSize = size + 'px';

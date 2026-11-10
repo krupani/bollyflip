@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bollywood Night — Theme Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rozha+One&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       BOLLYWOOD NIGHT (LOUNGE) — THEME PREVIEW
+       ============================================================ */
+    :root {
+      --bg: #0a0a1a;
+      --bg-2: #12102a;
+      --cream: #f5efe6;
+      --cream-dim: rgba(245, 239, 230, 0.68);
+      --cream-faint: rgba(245, 239, 230, 0.40);
+      --gold: #ffd60a;
+      --gold-soft: rgba(255, 214, 10, 0.55);
+      --pink: #ff2e63;
+      --cyan: #00d9ff;
+      --purple: #a855f7;
+      --font-display: 'Bebas Neue', 'Anton', Impact, sans-serif;
+      --font-bolly: 'Rozha One', Georgia, serif;
+      --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    /* ---------- Preview banner ---------- */
+    .preview-banner {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(90deg, #1a0505, #2a0a1a, #1a0505);
+      border-bottom: 1px solid rgba(255, 214, 10, 0.35);
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      text-align: center;
+      font-weight: 600;
+      backdrop-filter: blur(6px);
+    }
+    .preview-banner b { color: var(--cream); }
+
+    /* ---------- Screen base ---------- */
+    .screen {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .screen-label {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 10;
+      font-family: var(--font-body);
+      font-size: 0.66rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--cream-faint);
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(245, 239, 230, 0.12);
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-weight: 600;
+      backdrop-filter: blur(6px);
+    }
+
+    /* ---------- 6 backgrounds ---------- */
+    .bg-0 {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 214, 10, 0.26), transparent 68%),
+        #0a0a1a;
+    }
+    .bg-1 {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 46, 99, 0.26), transparent 68%),
+        #0a0a1a;
+    }
+    .bg-2 {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 217, 255, 0.24), transparent 68%),
+        #0a0a1a;
+    }
+    .bg-3 {
+      background:
+        radial-gradient(ellipse 60% 60% at 20% 0%, rgba(168, 85, 247, 0.28), transparent 66%),
+        radial-gradient(ellipse 60% 60% at 80% 100%, rgba(236, 72, 153, 0.20), transparent 66%),
+        #0a0a1a;
+    }
+    .bg-4 {
+      background:
+        radial-gradient(ellipse 70% 60% at 30% 0%, rgba(255, 214, 10, 0.22), transparent 66%),
+        radial-gradient(ellipse 70% 60% at 70% 100%, rgba(255, 46, 99, 0.22), transparent 66%),
+        #0a0a1a;
+    }
+    .bg-5 {
+      background:
+        radial-gradient(ellipse 70% 60% at 30% 0%, rgba(20, 184, 166, 0.22), transparent 66%),
+        radial-gradient(ellipse 70% 60% at 70% 100%, rgba(0, 217, 255, 0.20), transparent 66%),
+        #0a0a1a;
+    }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      font-family: var(--font-body);
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      padding: 13px 24px;
+      font-size: 0.98rem;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ffe45c, #ffd60a 40%, #f59e0b);
+      color: #1a0f00;
+      box-shadow: 0 8px 28px rgba(255, 214, 10, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      font-weight: 700;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 12px 36px rgba(255, 214, 10, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: rgba(245, 239, 230, 0.06);
+      border: 1.5px solid rgba(245, 239, 230, 0.22);
+      color: var(--cream);
+    }
+    .btn-ghost:hover {
+      background: rgba(245, 239, 230, 0.12);
+      border-color: rgba(245, 239, 230, 0.4);
+    }
+
+    .btn-large { padding: 17px 34px; font-size: 1.06rem; }
+
+    /* ============================================================
+       01 · HOME
+       ============================================================ */
+    .home-screen {
+      background:
+        radial-gradient(ellipse 55% 45% at 18% 8%, rgba(168, 85, 247, 0.20), transparent 65%),
+        radial-gradient(ellipse 55% 45% at 82% 92%, rgba(255, 214, 10, 0.13), transparent 65%),
+        radial-gradient(ellipse 80% 40% at 50% 50%, rgba(10, 10, 26, 0.9), transparent 80%),
+        #0a0a1a;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+      gap: 0;
+    }
+
+    .home-header { text-align: center; margin-bottom: 30px; z-index: 1; }
+
+    .home-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      padding: 6px 14px;
+      border: 1px solid rgba(255, 214, 10, 0.4);
+      border-radius: 999px;
+      margin-bottom: 18px;
+      background: rgba(255, 214, 10, 0.05);
+    }
+
+    .title-xl {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--cream);
+      text-shadow: 0 4px 40px rgba(255, 214, 10, 0.18);
+    }
+    .title-xl .accent {
+      background: linear-gradient(90deg, #ffe45c, #ffd60a, #ff2e63);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .home-subtitle {
+      color: var(--cream-dim);
+      margin-top: 10px;
+      font-size: 0.98rem;
+      letter-spacing: 0.03em;
+      font-weight: 400;
+    }
+
+    .card-glass {
+      width: 100%;
+      max-width: 540px;
+      background: rgba(18, 16, 42, 0.6);
+      border: 1px solid rgba(255, 214, 10, 0.18);
+      border-radius: 20px;
+      padding: 26px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+      z-index: 1;
+    }
+
+    .input-row { display: flex; gap: 10px; }
+
+    .name-input {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.42);
+      border: 1.5px solid rgba(245, 239, 230, 0.18);
+      border-radius: 12px;
+      padding: 14px 18px;
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .name-input::placeholder { color: var(--cream-faint); }
+    .name-input:focus { border-color: var(--gold); background: rgba(0, 0, 0, 0.55); }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 214, 10, 0.10);
+      border: 1px solid rgba(255, 214, 10, 0.35);
+      border-radius: 999px;
+      padding: 7px 8px 7px 15px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--cream);
+    }
+    .chip-x {
+      background: rgba(0, 0, 0, 0.35);
+      border: none;
+      color: var(--gold);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 0.68rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .chip-x:hover { background: rgba(255, 46, 99, 0.6); color: #fff; }
+
+    .empty-hint {
+      color: var(--cream-faint);
+      font-size: 0.86rem;
+      line-height: 1.5;
+      text-align: center;
+      padding: 6px 0;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(245, 239, 230, 0.08);
+      cursor: pointer;
+      font-size: 0.92rem;
+      color: var(--cream-dim);
+      user-select: none;
+    }
+    .checkbox-row input { position: absolute; opacity: 0; width: 0; height: 0; }
+    .checkbox-custom {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 1.5px solid rgba(255, 214, 10, 0.5);
+      background: rgba(0, 0, 0, 0.35);
+      flex-shrink: 0;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .checkbox-row input:checked + .checkbox-custom {
+      background: linear-gradient(135deg, #ffd60a, #f59e0b);
+      border-color: var(--gold);
+    }
+    .checkbox-row input:checked + .checkbox-custom::after {
+      content: '✓';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1a0f00;
+      font-weight: 900;
+      font-size: 0.82rem;
+    }
+
+    .home-actions {
+      width: 100%;
+      max-width: 540px;
+      margin-top: 26px;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .home-actions .btn { width: 100%; }
+
+    .home-footer {
+      margin-top: 22px;
+      color: var(--cream-faint);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      z-index: 1;
+    }
+    .home-author {
+      margin-top: 6px;
+      color: var(--cream-faint);
+      font-size: 0.78rem;
+      z-index: 1;
+    }
+    .home-author a { color: var(--gold); text-decoration: none; }
+    .home-author a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       02 · GAME SELECTION
+       ============================================================ */
+    .selection-screen {
+      padding: 80px 32px 40px;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+
+    .selection-header { text-align: center; }
+    .selection-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      color: var(--cream);
+      font-weight: 400;
+    }
+    .selection-subtitle {
+      color: var(--cream-dim);
+      font-size: 0.95rem;
+      margin-top: 8px;
+      letter-spacing: 0.03em;
+    }
+
+    .games-grid {
+      width: 100%;
+      max-width: 880px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .game-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 26px 30px;
+      background: rgba(18, 16, 42, 0.55);
+      border: 1.5px solid rgba(245, 239, 230, 0.10);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.22s cubic-bezier(0.2, 0.9, 0.3, 1.15),
+                  border-color 0.25s,
+                  box-shadow 0.28s,
+                  background 0.25s;
+      overflow: hidden;
+      text-align: left;
+    }
+    .game-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 40% 80% at 0% 50%, var(--accent-glow, rgba(255, 214, 10, 0.15)), transparent 70%);
+      opacity: 0.6;
+      transition: opacity 0.25s;
+      pointer-events: none;
+    }
+    .game-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent, rgba(255, 214, 10, 0.5));
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--accent, rgba(255, 214, 10, 0.3));
+      background: rgba(24, 20, 52, 0.7);
+    }
+    .game-card:hover::before { opacity: 1; }
+    .game-card:hover .game-go { transform: translateX(4px); }
+    .game-card:hover .game-icon { box-shadow: 0 0 32px var(--accent-glow, rgba(255, 214, 10, 0.6)); }
+
+    .game-card.accent-gold {
+      --accent: rgba(255, 214, 10, 0.65);
+      --accent-glow: rgba(255, 214, 10, 0.55);
+    }
+    .game-card.accent-pink {
+      --accent: rgba(255, 46, 99, 0.65);
+      --accent-glow: rgba(255, 46, 99, 0.55);
+    }
+    .game-card.accent-cyan {
+      --accent: rgba(0, 217, 255, 0.65);
+      --accent-glow: rgba(0, 217, 255, 0.55);
+    }
+
+    .game-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.1rem;
+      flex-shrink: 0;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1.5px solid var(--accent, rgba(255, 214, 10, 0.5));
+      box-shadow: 0 0 22px var(--accent-glow, rgba(255, 214, 10, 0.4));
+      transition: box-shadow 0.28s;
+      z-index: 1;
+    }
+
+    .game-info { flex: 1; z-index: 1; min-width: 0; }
+    .game-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+      letter-spacing: 0.03em;
+      line-height: 1;
+      color: var(--cream);
+      font-weight: 400;
+    }
+    .game-tagline {
+      color: var(--cream-dim);
+      font-size: 0.88rem;
+      margin-top: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .game-go {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent, var(--gold));
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      z-index: 1;
+      transition: transform 0.22s;
+      flex-shrink: 0;
+    }
+    .game-go span { font-size: 1.15rem; }
+
+    .game-info-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1.5px solid rgba(245, 239, 230, 0.25);
+      color: var(--cream-dim);
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-style: italic;
+      font-family: var(--font-bolly);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition: all 0.2s;
+    }
+    .game-info-btn:hover {
+      background: var(--accent, rgba(255, 214, 10, 0.3));
+      color: #1a0f00;
+      border-color: var(--accent, var(--gold));
+      transform: scale(1.08);
+    }
+
+    /* ============================================================
+       03/04/05 · GAMEPLAY
+       ============================================================ */
+    .game-screen { user-select: none; }
+
+    .game-topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+      padding: 22px 32px;
+      gap: 16px;
+      z-index: 5;
+    }
+
+    .game-id-block {
+      justify-self: start;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      line-height: 1;
+    }
+    .game-id-label {
+      font-size: 0.66rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--cream-faint);
+      font-weight: 600;
+    }
+    .game-id {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      letter-spacing: 0.03em;
+      color: var(--cream);
+      line-height: 1;
+    }
+    .game-progress {
+      font-size: 0.74rem;
+      color: var(--cream-faint);
+      letter-spacing: 0.08em;
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    .mini-leaderboard {
+      justify-self: center;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 214, 10, 0.28);
+      color: var(--cream);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .mini-leaderboard:hover {
+      background: rgba(0, 0, 0, 0.7);
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+    .ml-entry { display: inline-flex; align-items: center; gap: 5px; }
+    .ml-entry b { color: var(--gold); }
+
+    .close-btn {
+      justify-self: end;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(245, 239, 230, 0.22);
+      background: rgba(0, 0, 0, 0.35);
+      color: var(--cream);
+      font-size: 1.15rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .close-btn:hover {
+      background: rgba(255, 46, 99, 0.75);
+      border-color: transparent;
+      transform: scale(1.05);
+    }
+
+    .game-center {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 6vw;
+      text-align: center;
+      overflow: hidden;
+      gap: 30px;
+      z-index: 2;
+    }
+
+    .clue-text {
+      font-family: var(--font-bolly);
+      font-size: clamp(2.8rem, 8.5vw, 7rem);
+      line-height: 1.08;
+      color: var(--cream);
+      text-shadow: 0 4px 40px rgba(0, 0, 0, 0.6), 0 0 100px rgba(245, 239, 230, 0.08);
+      word-break: break-word;
+      max-width: 100%;
+    }
+
+    /* Hint card */
+    .hint-card {
+      max-width: 720px;
+      width: 100%;
+      background: rgba(0, 217, 255, 0.06);
+      border: 1px solid rgba(0, 217, 255, 0.35);
+      border-radius: 16px;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 0 32px rgba(0, 217, 255, 0.12);
+      animation: hintSlide 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.15);
+    }
+    @keyframes hintSlide {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hint-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .hint-text {
+      color: var(--cream);
+      font-size: 1.02rem;
+      text-align: left;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+    }
+
+    /* Revealed */
+    .movie-reveal {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      animation: revealIn 0.55s ease;
+      margin-top: 6px;
+    }
+    @keyframes revealIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .movie-reveal-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--cream-faint);
+      font-weight: 600;
+    }
+    .movie-reveal-title {
+      font-family: var(--font-bolly);
+      font-size: clamp(1.9rem, 5vw, 3.6rem);
+      line-height: 1.1;
+      background: linear-gradient(90deg, #ffe45c, #ffd60a, #f59e0b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 2px 18px rgba(255, 214, 10, 0.4));
+    }
+
+    .game-bottom {
+      padding: 0 32px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      z-index: 5;
+    }
+
+    .game-actions {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .btn-hint-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-hint {
+      background: rgba(0, 217, 255, 0.10);
+      border: 1.5px solid rgba(0, 217, 255, 0.5);
+      color: var(--cyan);
+      font-weight: 600;
+      padding: 14px 30px;
+      border-radius: 999px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-hint:hover {
+      background: rgba(0, 217, 255, 0.2);
+      box-shadow: 0 0 28px rgba(0, 217, 255, 0.28);
+      transform: translateY(-1px);
+    }
+    .btn-hint.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      background: rgba(0, 217, 255, 0.04);
+      box-shadow: none;
+      transform: none;
+    }
+    .btn-hint.disabled:hover { box-shadow: none; transform: none; }
+    .hint-cost {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cream-faint);
+      font-weight: 600;
+    }
+
+    .btn-reveal, .btn-next {
+      padding: 15px 44px;
+      border-radius: 999px;
+      font-size: 1.05rem;
+    }
+
+    /* ---------- Scoring panel ---------- */
+    .scoring-panel {
+      width: 100%;
+      max-width: 940px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(245, 239, 230, 0.14);
+      border-radius: 18px;
+      padding: 16px 22px 18px;
+      animation: hintSlide 0.3s ease;
+    }
+    .scoring-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .scoring-label b {
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+    }
+    .radio-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      justify-content: center;
+    }
+    .radio-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(245, 239, 230, 0.22);
+      background: rgba(245, 239, 230, 0.04);
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--cream);
+      transition: all 0.16s;
+      user-select: none;
+    }
+    .radio-pill:hover {
+      background: rgba(245, 239, 230, 0.10);
+      border-color: rgba(245, 239, 230, 0.4);
+    }
+    .radio-pill.selected {
+      background: linear-gradient(135deg, #ffd60a, #f59e0b);
+      border-color: var(--gold);
+      color: #1a0f00;
+      font-weight: 700;
+      box-shadow: 0 4px 22px rgba(255, 214, 10, 0.42);
+    }
+    .radio-pill.nobody { border-style: dashed; }
+    .radio-pill.nobody.selected {
+      background: linear-gradient(135deg, #94a3b8, #475569);
+      border-color: #94a3b8;
+      color: #fff;
+      box-shadow: 0 4px 22px rgba(71, 85, 105, 0.55);
+    }
+
+    /* ============================================================
+       06 · BOLLYJUMBLE (lowercase demo)
+       ============================================================ */
+    .jumble-clue {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 11vw, 9rem);
+      letter-spacing: 0.10em;
+      color: var(--cream);
+      text-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+      font-weight: 400;
+      text-transform: lowercase;
+      word-break: break-word;
+    }
+    .jumble-note {
+      margin-top: 12px;
+      font-size: 0.82rem;
+      color: var(--cream-faint);
+      letter-spacing: 0.06em;
+      font-style: italic;
+    }
+
+    /* ============================================================
+       07 · RESULTS
+       ============================================================ */
+    .results-screen {
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(168, 85, 247, 0.22), transparent 62%),
+        radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255, 214, 10, 0.10), transparent 65%),
+        #0a0a1a;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+      gap: 26px;
+    }
+
+    .results-header { text-align: center; }
+    .trophy {
+      font-size: 4.5rem;
+      filter: drop-shadow(0 0 24px rgba(255, 214, 10, 0.5));
+    }
+    .results-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1;
+      color: var(--cream);
+      margin-top: 8px;
+      letter-spacing: 0.04em;
+      font-weight: 400;
+    }
+    .winner-name {
+      font-family: var(--font-bolly);
+      font-size: clamp(1.9rem, 5vw, 3.2rem);
+      margin-top: 10px;
+      background: linear-gradient(90deg, #ffe45c, #ffd60a, #f59e0b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 2px 20px rgba(255, 214, 10, 0.4));
+    }
+    .winner-score {
+      color: var(--cream-dim);
+      font-size: 1rem;
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .final-ranking {
+      width: 100%;
+      max-width: 460px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .rank-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 20px;
+      background: rgba(245, 239, 230, 0.04);
+      border: 1px solid rgba(245, 239, 230, 0.08);
+      border-radius: 12px;
+      font-size: 0.98rem;
+    }
+    .rank-row.top {
+      background: rgba(255, 214, 10, 0.10);
+      border-color: rgba(255, 214, 10, 0.32);
+    }
+    .rank-medal { font-size: 1.15rem; width: 30px; text-align: center; flex-shrink: 0; }
+    .rank-name { flex: 1; color: var(--cream); font-weight: 500; }
+    .rank-score { font-weight: 700; color: var(--gold); font-size: 1.10rem; }
+
+    .results-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* ============================================================
+       PREVIEW FOOTER
+       ============================================================ */
+    .preview-footer {
+      padding: 40px 24px;
+      text-align: center;
+      background: #060610;
+      border-top: 1px solid rgba(255, 214, 10, 0.18);
+      color: var(--cream-dim);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+    .preview-footer b { color: var(--gold); }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 700px) {
+      .game-topbar { padding: 14px 16px; }
+      .close-btn { width: 42px; height: 42px; }
+      .mini-leaderboard { font-size: 0.72rem; padding: 7px 12px; gap: 10px; }
+      .game-bottom { padding: 0 16px 22px; }
+      .btn-reveal, .btn-next, .btn-hint { padding: 13px 26px; font-size: 0.95rem; }
+      .game-card { padding: 20px 22px; gap: 16px; }
+      .game-icon { width: 58px; height: 58px; font-size: 1.7rem; }
+      .selection-screen { padding: 60px 20px 40px; }
+      .game-card .game-go { display: none; }
+      .radio-pill { padding: 8px 15px; font-size: 0.86rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="preview-banner">
+    🎨 Theme Preview · <b>Bollywood Night (Lounge)</b> · Not the final game
+  </div>
+
+  <!-- ============================================================
+       01 · HOME
+       ============================================================ -->
+  <section class="screen home-screen">
+    <span class="screen-label">01 · Home</span>
+
+    <header class="home-header">
+      <div class="home-eyebrow">Bollywood Night</div>
+      <h1 class="title-xl">Guess the <span class="accent">Movie</span></h1>
+      <p class="home-subtitle">Three games. One screen. Zero mercy.</p>
+    </header>
+
+    <section class="card-glass">
+      <div class="input-row">
+        <input class="name-input" type="text" placeholder="Enter player name" />
+        <button class="btn btn-primary">Add</button>
+      </div>
+      <div class="chip-list">
+        <span class="chip">Aarav <button class="chip-x">✕</button></span>
+        <span class="chip">Diya <button class="chip-x">✕</button></span>
+        <span class="chip">Kabir <button class="chip-x">✕</button></span>
+        <span class="chip">Meera <button class="chip-x">✕</button></span>
+      </div>
+      <label class="checkbox-row">
+        <input type="checkbox" />
+        <span class="checkbox-custom"></span>
+        <span>Skip Score (no points, just for fun)</span>
+      </label>
+    </section>
+
+    <div class="home-actions">
+      <button class="btn btn-primary btn-large">Next · Choose Game →</button>
+    </div>
+
+    <p class="home-footer">4 / 12 players</p>
+    <p class="home-author">Made with <span style="color:#ff2e63;">♥</span> by <a href="#">Kaushal Rupani</a></p>
+  </section>
+
+  <!-- ============================================================
+       02 · GAME SELECTION
+       ============================================================ -->
+  <section class="screen bg-0 selection-screen">
+    <span class="screen-label">02 · Choose Your Game</span>
+
+    <div class="selection-header">
+      <h2 class="selection-title">Pick Your Poison</h2>
+      <p class="selection-subtitle">Tap a card to play. Tap <b>ⓘ</b> for rules.</p>
+    </div>
+
+    <div class="games-grid">
+
+      <div class="game-card accent-gold">
+        <button class="game-info-btn" title="How to play">i</button>
+        <div class="game-icon">🪞</div>
+        <div class="game-info">
+          <div class="game-name">Bollyflip</div>
+          <div class="game-tagline">Guess the flipped movie title</div>
+        </div>
+        <div class="game-go">Let's Go <span>→</span></div>
+      </div>
+
+      <div class="game-card accent-pink">
+        <button class="game-info-btn" title="How to play">i</button>
+        <div class="game-icon">🌀</div>
+        <div class="game-info">
+          <div class="game-name">Bollytwist</div>
+          <div class="game-tagline">Read the chaos, guess the film</div>
+        </div>
+        <div class="game-go">Let's Go <span>→</span></div>
+      </div>
+
+      <div class="game-card accent-cyan">
+        <button class="game-info-btn" title="How to play">i</button>
+        <div class="game-icon">🧩</div>
+        <div class="game-info">
+          <div class="game-name">Bollyjumble</div>
+          <div class="game-tagline">Unscramble the movie title</div>
+        </div>
+        <div class="game-go">Let's Go <span>→</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       03 · GAMEPLAY — QUESTION
+       ============================================================ -->
+  <section class="screen bg-1 game-screen">
+    <span class="screen-label">03 · Gameplay · Question</span>
+
+    <div class="game-topbar">
+      <div class="game-id-block">
+        <span class="game-id-label">Movie</span>
+        <span class="game-id">#04</span>
+        <span class="game-progress">4 / 39</span>
+      </div>
+      <div class="mini-leaderboard">
+        🏆
+        <span class="ml-entry">🥇 Aarav <b>6</b></span>
+        <span class="ml-entry">🥈 Diya <b>4</b></span>
+        <span class="ml-entry">🥉 Kabir <b>3</b></span>
+      </div>
+      <button class="close-btn">✕</button>
+    </div>
+
+    <div class="game-center">
+      <div class="clue-text">Don't Say I Hate You</div>
+    </div>
+
+    <div class="game-bottom">
+      <div class="game-actions">
+        <div class="btn-hint-wrap">
+          <button class="btn-hint">💡 Show Hint</button>
+          <span class="hint-cost">−1 pt</span>
+        </div>
+        <button class="btn btn-primary btn-reveal">Reveal Answer</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       04 · GAMEPLAY — HINT SHOWN
+       ============================================================ -->
+  <section class="screen bg-2 game-screen">
+    <span class="screen-label">04 · Gameplay · Hint Shown</span>
+
+    <div class="game-topbar">
+      <div class="game-id-block">
+        <span class="game-id-label">Movie</span>
+        <span class="game-id">#04</span>
+        <span class="game-progress">4 / 39</span>
+      </div>
+      <div class="mini-leaderboard">
+        🏆
+        <span class="ml-entry">🥇 Aarav <b>6</b></span>
+        <span class="ml-entry">🥈 Diya <b>4</b></span>
+        <span class="ml-entry">🥉 Kabir <b>3</b></span>
+      </div>
+      <button class="close-btn">✕</button>
+    </div>
+
+    <div class="game-center">
+      <div class="clue-text">Don't Say I Hate You</div>
+      <div class="hint-card">
+        <span class="hint-icon">💡</span>
+        <span class="hint-text">Actor: Aamir Khan · Released: 2001</span>
+      </div>
+    </div>
+
+    <div class="game-bottom">
+      <div class="game-actions">
+        <div class="btn-hint-wrap">
+          <button class="btn-hint disabled">💡 Hint Used</button>
+          <span class="hint-cost">1 pt round</span>
+        </div>
+        <button class="btn btn-primary btn-reveal">Reveal Answer</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       05 · GAMEPLAY — REVEALED + SCORING
+       ============================================================ -->
+  <section class="screen bg-0 game-screen">
+    <span class="screen-label">05 · Gameplay · Revealed + Scoring</span>
+
+    <div class="game-topbar">
+      <div class="game-id-block">
+        <span class="game-id-label">Movie</span>
+        <span class="game-id">#04</span>
+        <span class="game-progress">4 / 39</span>
+      </div>
+      <div class="mini-leaderboard">
+        🏆
+        <span class="ml-entry">🥇 Aarav <b>6</b></span>
+        <span class="ml-entry">🥈 Diya <b>4</b></span>
+        <span class="ml-entry">🥉 Kabir <b>3</b></span>
+      </div>
+      <button class="close-btn">✕</button>
+    </div>
+
+    <div class="game-center">
+      <div class="clue-text" style="font-size: clamp(2rem, 5.5vw, 4rem);">Don't Say I Hate You</div>
+      <div class="movie-reveal">
+        <span class="movie-reveal-label">The movie was</span>
+        <span class="movie-reveal-title">Kaho Naa... Pyaar Hai</span>
+      </div>
+    </div>
+
+    <div class="game-bottom">
+      <div class="scoring-panel">
+        <div class="scoring-label">Who got it? — <b>1 pt</b> (hint used)</div>
+        <div class="radio-grid">
+          <label class="radio-pill selected">Aarav</label>
+          <label class="radio-pill">Diya</label>
+          <label class="radio-pill">Kabir</label>
+          <label class="radio-pill">Meera</label>
+          <label class="radio-pill nobody">Nobody / Pass</label>
+        </div>
+      </div>
+      <div class="game-actions">
+        <button class="btn btn-primary btn-next">Next Movie →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       06 · BOLLYJUMBLE — LOWERCASE DEMO
+       ============================================================ -->
+  <section class="screen bg-3 game-screen">
+    <span class="screen-label">06 · Bollyjumble · Lowercase Scramble</span>
+
+    <div class="game-topbar">
+      <div class="game-id-block">
+        <span class="game-id-label">Movie</span>
+        <span class="game-id">#01</span>
+        <span class="game-progress">1 / 18</span>
+      </div>
+      <div class="mini-leaderboard">
+        🏆
+        <span class="ml-entry">🥇 Aarav <b>2</b></span>
+        <span class="ml-entry">🥈 Diya <b>1</b></span>
+      </div>
+      <button class="close-btn">✕</button>
+    </div>
+
+    <div class="game-center">
+      <div class="jumble-clue">hnaaken</div>
+      <div class="jumble-note">All lowercase — no free first-letter clues</div>
+    </div>
+
+    <div class="game-bottom">
+      <div class="game-actions">
+        <div class="btn-hint-wrap">
+          <button class="btn-hint">💡 Show Hint</button>
+          <span class="hint-cost">−1 pt</span>
+        </div>
+        <button class="btn btn-primary btn-reveal">Reveal Answer</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       07 · RESULTS
+       ============================================================ -->
+  <section class="screen results-screen">
+    <span class="screen-label">07 · Results</span>
+
+    <div class="results-header">
+      <div class="trophy">🏆</div>
+      <h1 class="results-title">Winner!</h1>
+      <div class="winner-name">Aarav &amp; Diya</div>
+      <div class="winner-score">6 points each</div>
+    </div>
+
+    <div class="final-ranking">
+      <div class="rank-row top">
+        <span class="rank-medal">🥇</span>
+        <span class="rank-name">Aarav</span>
+        <span class="rank-score">6</span>
+      </div>
+      <div class="rank-row top">
+        <span class="rank-medal">🥇</span>
+        <span class="rank-name">Diya</span>
+        <span class="rank-score">6</span>
+      </div>
+      <div class="rank-row top">
+        <span class="rank-medal">🥈</span>
+        <span class="rank-name">Kabir</span>
+        <span class="rank-score">3</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-medal">🥉</span>
+        <span class="rank-name">Meera</span>
+        <span class="rank-score">2</span>
+      </div>
+    </div>
+
+    <div class="results-actions">
+      <button class="btn btn-primary btn-large">Play Again</button>
+      <button class="btn btn-ghost btn-large">Choose Another Game</button>
+      <button class="btn btn-ghost btn-large">Home</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="preview-footer">
+    <b>Preview complete.</b><br />
+    Reply with <b>“go”</b> to build the real thing, or list changes by section number above.
+  </div>
+
+</body>
+</html>

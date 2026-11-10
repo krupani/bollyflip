@@ -33,6 +33,13 @@ const state = {
     modal: null
 };
 
+function createAuthorFooter() {
+    const footer = el('div', { class: 'author-footer' });
+    footer.innerHTML = 'Made with <span class="heart">&hearts;</span> by '
+        + '<a href="https://linkedin.com/in/kushrupani" target="_blank" rel="noopener noreferrer">Kaushal Rupani</a>';
+    return footer;
+}
+
 /* ---------------- DOM helper ---------------- */
 function el(tag, props = {}, ...children) {
     const node = document.createElement(tag);
@@ -233,6 +240,39 @@ function prepareDeck(gameId) {
     return cards;
 }
 
+/* ---------------- Scramble Reveal Animation ---------------- */
+function scrambleText(element, finalText, duration = 900) {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*';
+    const start = performance.now();
+
+    function frame(now) {
+        const progress = (now - start) / duration;
+        if (progress < 1) {
+            let current = '';
+            for (let i = 0; i < finalText.length; i++) {
+                if (finalText[i] === ' ') {
+                    current += ' ';
+                } else if (Math.random() < progress) {
+                    current += finalText[i];
+                } else {
+                    current += chars[Math.floor(Math.random() * chars.length)];
+                }
+            }
+            element.textContent = current;
+            requestAnimationFrame(frame);
+        } else {
+            element.textContent = finalText;
+            // Transition to gold gradient
+            element.style.background = 'linear-gradient(90deg, #ffe45c, #ffd60a, #f59e0b)';
+            element.style.webkitBackgroundClip = 'text';
+            element.style.backgroundClip = 'text';
+            element.style.color = 'transparent';
+            element.style.filter = 'drop-shadow(0 2px 18px rgba(255,214,10,0.4))';
+        }
+    }
+    requestAnimationFrame(frame);
+}
+
 /* ============================================================
    ROUTER
    ============================================================ */
@@ -351,10 +391,7 @@ function renderHome() {
 
     screen.append(el('p', { class: 'home-footer' }, `${state.players.length} / ${MAX_PLAYERS} players`));
 
-    const author = el('div', { class: 'home-author' });
-    author.innerHTML = 'Made with <span class="heart">&hearts;</span> by '
-        + '<a href="https://linkedin.com/in/kushrupani" target="_blank" rel="noopener noreferrer">Kaushal Rupani</a>';
-    screen.append(author);
+    screen.append(createAuthorFooter());
 
     app.append(screen);
 
@@ -436,6 +473,7 @@ function renderSelection() {
     }
 
     screen.append(grid);
+    screen.append(createAuthorFooter());
     app.append(screen);
 }
 
@@ -504,16 +542,21 @@ function renderGame() {
     const clue = el('div', { class: game.displayClass }, game.getDisplayText(card));
 
     if (state.phase === 'revealed') {
-        // Show clue smaller alongside reveal (but not microscopic)
+        // Show the original clue large and bright, just slightly scaled down
         center.append(el('div', {
-            class: 'clue-text clue-text--medium',
-            style: 'opacity:0.75; margin-bottom: 12px;'
+            class: game.displayClass + ' clue-revealed'
         }, game.getDisplayText(card)));
+
+        const titleEl = el('span', { class: 'movie-reveal-title' }, '...');
 
         center.append(el('div', { class: 'movie-reveal' },
             el('span', { class: 'movie-reveal-label' }, 'The movie was'),
-            el('span', { class: 'movie-reveal-title' }, game.getAnswer(card))
+            titleEl
         ));
+
+        // Trigger the scramble animation
+        requestAnimationFrame(() => scrambleText(titleEl, game.getAnswer(card)));
+
     } else {
         center.append(clue);
     }
@@ -578,6 +621,7 @@ function renderGame() {
     }
 
     screen.append(bottom);
+    screen.append(createAuthorFooter());
     app.append(screen);
 
     fitClueText();
@@ -869,6 +913,7 @@ function renderResults() {
 
     actions.append(playAgain, chooseGame, homeBtn);
     screen.append(actions);
+    screen.append(createAuthorFooter());
     app.append(screen);
 
     if (state.scoringEnabled) setTimeout(() => launchConfetti(3600), 120);

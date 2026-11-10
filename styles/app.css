@@ -128,30 +128,38 @@
 }
 
 .home-footer {
-    margin-top: 22px;
+    margin-top: 16px;
     color: var(--cream-faint);
     font-size: 0.78rem;
     letter-spacing: 0.06em;
     z-index: 1;
 }
 
-.home-author {
-    margin-top: 6px;
+/* Global Author Footer */
+.author-footer {
+    margin-top: auto;
+    /* Pushes it to the very bottom of the flex screen */
+    padding-top: 24px;
+    /* Gap above it */
+    padding-bottom: 20px;
+    /* Gap below it (screen edge) */
     color: var(--cream-faint);
     font-size: 0.78rem;
+    text-align: center;
+    width: 100%;
     z-index: 1;
 }
 
-.home-author a {
+.author-footer a {
     color: var(--gold);
     text-decoration: none;
 }
 
-.home-author a:hover {
+.author-footer a:hover {
     text-decoration: underline;
 }
 
-.home-author .heart {
+.author-footer .heart {
     color: var(--pink);
     display: inline-block;
     animation: heartbeat 1.4s ease-in-out infinite;
@@ -523,6 +531,15 @@
     animation: popIn 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.15);
 }
 
+.clue-revealed {
+    opacity: 0.95;
+    color: var(--cream);
+    transform: scale(0.8);
+    margin-bottom: -5px;
+    animation: none;
+    /* overrides popIn so it doesn't double animate */
+}
+
 @keyframes popIn {
     from {
         opacity: 0;
@@ -626,17 +643,15 @@
     font-family: var(--font-bolly);
     font-size: clamp(1.8rem, 4.5vw, 3.4rem);
     line-height: 1.1;
-    background: linear-gradient(90deg, #ffe45c, #ffd60a, #f59e0b);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    filter: drop-shadow(0 2px 18px rgba(255, 214, 10, 0.4));
+    color: var(--cream);
+    /* Starts cream, JS changes to gold */
     word-break: break-word;
     max-width: 100%;
+    transition: color 0.4s ease;
 }
 
 .game-bottom {
-    padding: 0 32px 30px;
+    padding: 0 32px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -711,12 +726,16 @@
 .scoring-panel {
     width: 100%;
     max-width: 940px;
-    background: rgba(0, 0, 0, 0.42);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(245, 239, 230, 0.18);
+    /* Changed from 0.42 black to a solid, slightly lighter midnight blue */
+    background: rgba(22, 20, 50, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    /* Brighter border */
+    border: 1.5px solid rgba(245, 239, 230, 0.28);
     border-radius: 18px;
     padding: 16px 22px 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Added drop shadow for depth */
     animation: hintSlide 0.3s ease;
 }
 
@@ -724,7 +743,8 @@
     font-size: 0.72rem;
     letter-spacing: 0.20em;
     text-transform: uppercase;
-    color: var(--cream-dim);
+    color: var(--cream);
+    /* Changed from dim to full bright cream */
     font-weight: 600;
     margin-bottom: 12px;
     text-align: center;
@@ -732,7 +752,7 @@
 
 .scoring-label b {
     color: var(--gold);
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 0.14em;
 }
 
@@ -748,8 +768,10 @@
     align-items: center;
     padding: 10px 20px;
     border-radius: 999px;
-    border: 1.5px solid rgba(245, 239, 230, 0.26);
-    background: rgba(245, 239, 230, 0.04);
+    /* Brighter border */
+    border: 1.5px solid rgba(245, 239, 230, 0.40);
+    /* Brighter pill background */
+    background: rgba(245, 239, 230, 0.10);
     cursor: pointer;
     font-size: 0.92rem;
     font-weight: 500;
@@ -767,8 +789,8 @@
 }
 
 .radio-pill:hover {
-    background: rgba(245, 239, 230, 0.10);
-    border-color: rgba(245, 239, 230, 0.42);
+    background: rgba(245, 239, 230, 0.20);
+    border-color: rgba(245, 239, 230, 0.65);
 }
 
 .radio-pill.selected {
